@@ -84,6 +84,15 @@ class GameEditView (LoginRequiredMixin,UpdateView):
     fields = ['title', 'description', 'complete']
     success_url = reverse_lazy('games')
 
+    def image(self,title):
+        resultado = requests.get(f'https://www.google.com/search?q={title}&tbm=isch&ved=2ahUKEwjsqLjw2uGEAxWc7skDHYYaBBMQ2-cCegQIABAA')
+        soup = bs4.BeautifulSoup(resultado.text, 'html.parser')
+        url = soup.select('.DS1iW')[0]['src']
+        return url
+    def form_valid(self, form):
+        form.instance.image =self.image(form.instance.title)
+        return super(GameEditView,self).form_valid(form)
+
 
 class GameDeleteView (LoginRequiredMixin,DeleteView):
     model = Game
