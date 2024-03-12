@@ -1,0 +1,15 @@
+{%extends 'base/main.html'%}
+
+{% block content%}
+
+<h1>Game Form owo</h1>
+<a href="{% url 'games'%}"> Home </a>
+<form method="POST" action="">
+    {% csrf_token %} <! -- os token permiten prevenir un agujero de seguridad -->
+    {{form.as_p}}
+
+    <input type="submit" value="Send">
+
+</form>
+
+{% endblock content%}

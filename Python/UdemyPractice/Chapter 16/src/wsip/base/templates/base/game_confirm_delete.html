@@ -1,0 +1,15 @@
+{%extends 'base/main.html'%}
+
+{% block content%}
+
+<a href=" {% url 'games'%}">Regresar</a>
+
+<form method="POST">
+
+    {% csrf_token %}
+    <p>
+        Delete game "{{game}}"
+        <input type="submit" value="Delete">
+    </p>
+</form>
+{% endblock content%}

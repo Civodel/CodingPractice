@@ -93,7 +93,7 @@ def greetings_traveler():
         moment ='Buenos Dias '
     else:
         moment ='Buenas Tardes  '
-    text_to_voice(f'{moment} aiooo, bienvenido puerquito soy jarvis')
+    text_to_voice(f'{moment} aiooo, bienvenido soy jarvis')
 
 
 #central funtion
@@ -111,11 +111,11 @@ def jarvis():
 
         if 'abrir youtube' in order:
 
-            text_to_voice("Estoy abriendo Yourube aguanta ")
+            text_to_voice("Estoy abriendo Yourube  ")
             webbrowser.open('https://www.youtube.com/watch?v=baaNwRAhHBo&ab_channel=%28G%29I-DLE%28%EC%97%AC%EC%9E%90%29%EC%95%84%EC%9D%B4%EB%93%A4%28OfficialYouTubeChannel%29')
             continue
         elif 'abrir navegador ' in order:
-            text_to_voice("Estoy abriendo el navegador aguanta ")
+            text_to_voice("Estoy abriendo el navegador  ")
             webbrowser.open('https://www.google.com/')
             continue
         elif 'que dia es hoy ' in order:
@@ -126,7 +126,7 @@ def jarvis():
             continue
 
         elif 'buscar en wikipedia' in order:
-            text_to_voice("Estoy buscando en wikipedia aguanta ")
+            text_to_voice("Estoy buscando en wikipedia  ")
             order = order.replace('buscar en wikipedia','')
             wikipedia.set_lang('es')
             result =wikipedia.summary(order,sentences=1)

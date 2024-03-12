@@ -1,0 +1,86 @@
+
+
+
+{%extends 'base/main.html'%}
+
+{% block content%}
+
+
+<div class="search-bar-st">
+
+    <div>
+        <h1>Hola {{request.user|title}}</h1>
+        <h3 style="margin:0">You have  {{count}} pending game</h3>
+    </div>
+
+{% if request.user.is_authenticated%}
+
+    <form method='POST' action="{% url 'logout' %}">
+            {% csrf_token %}
+
+            <button type="submit">logout</button>
+
+    </form>
+{% else %}
+    <a href="{% url 'login2' %}">Login</a>
+{% endif %}
+
+</div>
+
+<hr>
+
+
+<div id="search-container">
+
+
+
+    <form method="GET" style="margin-top:20px; display:flex;" >
+    <input type="text" name="searh-area" value="{{search_values}}">
+    <input type="submit" value="Search">
+    </form>
+    <a id="create-new-game" href="{% url 'game-create'%}">New &#x1F3AE;</a>
+
+
+</div>
+
+
+
+
+<div class="game-list-container">
+        {% for game in games %}
+        <div class="game-list">
+            {% if game.complete %}
+            <div class="game-title">
+                <div class="complete-game"></div>
+                <i><s><a href="{% url 'game-edit' game.id%}">{{game.title}}</a></s></i>
+
+
+
+            </div>
+            <div>{{game.description}}</div>
+            <div class="img"><img  src="{{ game.image }}"/></div>
+            <a class="delete-link" href="{% url 'game-delete' game.id %}">	&#x2718;</a>
+
+            {% else %}
+            <div class="game-title">
+                <div class="incomplete-game"> </div>
+                <a href="{% url 'game-edit' game.id%}">{{game}}</a>
+            </div>
+            <div>{{game.description}}</div>
+
+            <div class="img"><img  src="{{ game.image }}"/></div>
+            <a class="delete-link" href="{% url 'game-delete' game.id %}">	&#x2718;</a>
+            {% endif %}
+        </div>
+
+        {% empty %}
+        <h3>No games found</h3>
+        {% endfor %}
+</div>
+
+
+
+
+{% endblock content %}
+
+
