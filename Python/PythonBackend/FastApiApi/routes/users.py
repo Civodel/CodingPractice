@@ -12,9 +12,7 @@ class User(BaseModel):
     age:int
     game_id:int
 
-
-
-users_list=[User(id=1,name="Tilapia",surname="Madona",age=12,game_id=1500),User(id=2,name="Paul",surname="estoker",age=12,game_id=1500)]
+users_list=[User(id=1,name="Tilapia",surname="Madona",age=12,game_id=1500),User(id=2,name="Rawr",surname="estoker",age=12,game_id=1501)]
 @app.get("/users")
 async def get_users_list()->list:
 
