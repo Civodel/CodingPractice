@@ -17,23 +17,17 @@ class Solution:
         if not intervals:
             return [newInterval]
         for interval in intervals:
-
             if newInterval[0] > interval[1] and newInterval[1]>interval[1]:
-                if len(intervals) ==1 :
                     inter.append(interval)
                     inter.append(newInterval)
-                else:
-                    inter.append(interval)
             elif newInterval[0]<interval[0] and newInterval[1]<interval[0]:
-
-                inter.append(newInterval)
-                inter.append(interval)
+                    inter.append(newInterval)
+                    inter.append(interval)
             elif interval[0]<newInterval[0] and newInterval[1]<interval[1]:
                 inter.append(interval)
-
             else:
-
              interval_max=max(interval)
+
              if newInterval[0]>interval[0]:
                     newInterval[0] = interval[0]
              elif newInterval[1]<interval[1]:
@@ -41,15 +35,12 @@ class Solution:
              if newInterval[1] == interval_max:
 
                  inter.append(newInterval)
-
-
-
         return  inter
 
 if __name__ == '__main__':
-    list1 =[[1,5],[6,8]]
+    list1 =[[1,3],[6,9]]
 
-    newInterval =[5,6]
+    newInterval =[2,5]
 
 
 
