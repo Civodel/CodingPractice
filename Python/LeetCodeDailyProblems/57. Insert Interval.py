@@ -19,10 +19,8 @@ class Solution:
         for interval in intervals:
             if newInterval[0] > interval[1] and newInterval[1]>interval[1]:
                     inter.append(interval)
-                    inter.append(newInterval)
             elif newInterval[0]<interval[0] and newInterval[1]<interval[0]:
                     inter.append(newInterval)
-                    inter.append(interval)
             elif interval[0]<newInterval[0] and newInterval[1]<interval[1]:
                 inter.append(interval)
             else:
@@ -32,15 +30,14 @@ class Solution:
                     newInterval[0] = interval[0]
              elif newInterval[1]<interval[1]:
                     newInterval[1] = interval[1]
-             if newInterval[1] == interval_max:
 
-                 inter.append(newInterval)
+
         return  inter
 
 if __name__ == '__main__':
-    list1 =[[1,3],[6,9]]
+    list1 =[[1,2],[3,5],[6,7],[8,10],[12,16]]
 
-    newInterval =[2,5]
+    newInterval =[4,8]
 
 
 
