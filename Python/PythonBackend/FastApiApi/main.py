@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 from routes import games
+from routes import users
 
 
 app =FastAPI()
@@ -11,6 +12,8 @@ app =FastAPI()
 #routers
 
 app.include_router(games.route)
+app.include_router(users.route)
+
 app.mount('/static', StaticFiles(directory='static'),name='static')
 
 @app.get("/")

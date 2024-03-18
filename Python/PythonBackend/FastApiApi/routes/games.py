@@ -7,7 +7,7 @@ route =APIRouter(prefix="/games",
 
 games=['Elden Ring','Halo']
 
-@route.get("/")
+@route.get("/122")
 async def games()->str:
     return 'fghgf'
 
