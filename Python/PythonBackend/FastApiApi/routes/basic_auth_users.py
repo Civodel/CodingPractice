@@ -1,3 +1,2 @@
-from fastapi import FastAPI
-
-app = FastAPI()
+def hola():
+    return 0

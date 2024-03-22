@@ -25,7 +25,11 @@ class Solution:
                 seek = seek.next
             seek.next, target = target, seek.next
             seek = seek.next
+            stadsa='sds'
+            stadsa.isalnum()
         return head
+
+
 
 if __name__ == '__main__':
     list1 = ListNode()

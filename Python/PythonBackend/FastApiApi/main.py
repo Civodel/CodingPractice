@@ -5,6 +5,9 @@ from fastapi.staticfiles import StaticFiles
 from routes import games
 from routes import users
 
+from models import User
+
+
 
 app =FastAPI()
 
